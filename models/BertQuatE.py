@@ -280,23 +280,10 @@ class BertQuatE(Model):
         return score.cpu().data.numpy()   
   
     def get_ent_embedding(self, x):
-        print(x)
-        print([self.idx2ent[i.item()] for i in x])
         h = self.bert([self.idx2ent[i.item()] for i in x])
-        print(h)
-        print(h.size())
         h = self.project_ent(h)
-        print(h)
-        print(h.size())
         h = F.tanh(h)
-        print(h)
-        print(h.size())
         s, x, y, z = torch.split(h, self.config.hidden_size, dim=-1)
-        print(s.size())
-        print(x.size())
-        print(y.size())
-        print(z.size())
-        exit()
         return s, x, y, z    
           
     def get_rel_embedding(self, x):
