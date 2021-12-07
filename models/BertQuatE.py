@@ -158,6 +158,10 @@ class BertQuatE(Model):
             self.print_iter = 2000
             self.save_iter = 20000
             rel_name = 'rel2id.txt'
+        elif 'bid' in self.config.in_path:
+            self.print_iter = 2000
+            self.save_iter = 20000
+            rel_name = 'relation2id.txt'
             
         for line in open("%s/%s" % (self.config.in_path, file_name)):
             line = line.strip()
