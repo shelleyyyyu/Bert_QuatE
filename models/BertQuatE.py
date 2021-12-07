@@ -52,7 +52,6 @@ class bertEncoder(nn.Module):
         self.PAD = 0
         
     def sentence_to_tensor(self, s):
-        print(s)
         B = len(s)
         ws = []
         L = 0
