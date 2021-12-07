@@ -58,8 +58,8 @@ class bertEncoder(nn.Module):
         for i in range(B):
             r = s[i]
             # replace number with blank space
-            # for ch in '0123456789_':
-            #     r = r.replace(ch, ' ')
+            for ch in '_':
+                r = r.replace(ch, '')
             words = [i for i in self.tokenizer.tokenize(r)]
             words = ['[CLS]'] + words + ['[SEP]']
             ws.append(words)
